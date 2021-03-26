@@ -35,13 +35,7 @@ def _load_samples(csv_name, image_type):
 
 def load_data(dataset_name, image_size_before_crop,
               do_shuffle=True, do_flipping=False):
-    """
-    :param dataset_name: The name of the dataset.
-    :param image_size_before_crop: Resize to this size before random cropping.
-    :param do_shuffle: Shuffle switch.
-    :param do_flipping: Flip switch.
-    :return:
-    """
+   
     if dataset_name not in cyclegan_datasets.DATASET_TO_SIZES:
         raise ValueError('split name %s was not recognized.'
                          % dataset_name)
