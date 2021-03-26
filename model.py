@@ -1,4 +1,3 @@
-"""Code for constructing the model and get the outputs from the model."""
 
 import tensorflow as tf
 
@@ -75,14 +74,7 @@ def get_outputs(inputs, network="tensorflow", skip=False):
 
 
 def build_resnet_block(inputres, dim, name="resnet", padding="REFLECT"):
-    """build a single block of resnet.
-    :param inputres: inputres
-    :param dim: dim
-    :param name: name
-    :param padding: for tensorflow version use REFLECT; for pytorch version use
-     CONSTANT
-    :return: a single block of resnet.
-    """
+   
     with tf.variable_scope(name):
         out_res = tf.pad(inputres, [[0, 0], [1, 1], [
             1, 1], [0, 0]], padding)
