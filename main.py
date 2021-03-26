@@ -1,4 +1,4 @@
-"""Code for training CycleGAN."""
+
 from datetime import datetime
 import json
 import numpy as np
@@ -50,16 +50,7 @@ class CycleGAN:
         )
 
     def model_setup(self):
-        """
-        This function sets up the model to train.
-        self.input_A/self.input_B -> Set of training images.
-        self.fake_A/self.fake_B -> Generated images by corresponding generator
-        of input_A and input_B
-        self.lr -> Learning rate variable
-        self.cyc_A/ self.cyc_B -> Images generated after feeding
-        self.fake_A/self.fake_B to corresponding generator.
-        This is use to calculate cyclic loss
-        """
+       
         self.input_a = tf.placeholder(
             tf.float32, [
                 1,
@@ -120,14 +111,7 @@ class CycleGAN:
         self.prob_fake_pool_b_is_real = outputs['prob_fake_pool_b_is_real']
 
     def compute_losses(self):
-        """
-        In this function we are defining the variables for loss calculations
-        and training model.
-        d_loss_A/d_loss_B -> loss for discriminator A/B
-        g_loss_A/g_loss_B -> loss for generator A/B
-        *_trainer -> Various trainer for above loss functions
-        *_summ -> Summary variables for above loss functions
-        """
+       
         cycle_consistency_loss_a = \
             self._lambda_a * losses.cycle_consistency_loss(
                 real_images=self.input_a, generated_images=self.cycle_images_a,
@@ -419,17 +403,7 @@ class CycleGAN:
               default=False,
               help='Whether to add skip connection between input and output.')
 def main(to_train, log_dir, config_filename, checkpoint_dir, skip):
-    """
-    :param to_train: Specify whether it is training or testing. 1: training; 2:
-     resuming from latest checkpoint; 0: testing.
-    :param log_dir: The root dir to save checkpoints and imgs. The actual dir
-    is the root dir appended by the folder with the name timestamp.
-    :param config_filename: The configuration file.
-    :param checkpoint_dir: The directory that saves the latest checkpoint. It
-    only takes effect when to_train == 2.
-    :param skip: A boolean indicating whether to add skip connection between
-    input and output.
-    """
+   
     if not os.path.isdir(log_dir):
         os.makedirs(log_dir)
 
