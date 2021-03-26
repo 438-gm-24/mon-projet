@@ -1,4 +1,4 @@
-"""Create datasets for training and testing."""
+
 import csv
 import os
 import random
@@ -11,13 +11,7 @@ from . import cyclegan_datasets
 def create_list(foldername, fulldir=True, suffix=".jpg"):
     """
 
-    :param foldername: The full path of the folder.
-    :param fulldir: Whether to return the full path or not.
-    :param suffix: Filter by suffix.
-
-    :return: The list of filenames in the folder with given suffix.
-
-    """
+    
     file_list_tmp = os.listdir(foldername)
     file_list = []
     if fulldir:
