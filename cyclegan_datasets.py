@@ -1,7 +1,4 @@
-"""Contains the standard train/test splits for the cyclegan data."""
 
-"""The size of each dataset. Usually it is the maximum number of images from
-each domain."""
 DATASET_TO_SIZES = {
     'WFG2FG_train': 1502
 }
